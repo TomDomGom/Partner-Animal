@@ -18,13 +18,19 @@ public class Tablero {
     Random aleatorio;
     
     // La matriz estará compuesta por 4 filas y 4 columnas
-    public void Matriz() {
+    public void MatrizCartas() {
+        
     //Matriz lógica donde añadiremos las filas y las columnas. de las cartas.
-    cartasParejas = new int[4][4];
+    cartasParejas = new int[4][4]; 
     cartasParejasAux = new int[4][4];
-    aleatorio = new Random();
+    aleatorio = new Random(); 
+    
+    // Llamada al método. que dibujara la matriz.
+    this.numerosAleatorios();
     
     }
+    
+    
     // Creamos el metodo numerlos aleatorios donde se ubicaran las cartas.
     public void numerosAleatorios() {
         //Creamos la variable acumulador para guardar los resultados.
@@ -39,7 +45,7 @@ public class Tablero {
             }
         for (int i = 0; i < 4 ; i++) {
             for (int j = 0; j < 4 ; j++){
-                cartasParejas[i][j] = aleatorio.nextInt(8)+1; // Con el +1 añadimos del 0 al 10.
+                cartasParejas[i][j] = aleatorio.nextInt(8)+1; // Con el +1 añadimos del 0 al 8.
                 // Creamos una condición con el do while
                 do {
                     //ponemos el acumulador a 0 tras su revision.
@@ -59,6 +65,17 @@ public class Tablero {
                 } while (acumulador == 3);
             }
         } // Final Bucler Primer For.
+        
+        /* Resultado de la matriz mostrado por consola.
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.println(cartasParejas[i][j]+"     ");
+                
+            }
+            System.out.println("");
+            
+        }*/
+        
     } // Final metodo números Aleatorios / Lógica del juego.
     
     //Llamada al metodo numero aleatorio.
