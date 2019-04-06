@@ -7,7 +7,6 @@ package com.tomasdguez;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javax.swing.ImageIcon;
@@ -32,16 +31,12 @@ public class PartnerAnimal extends Application {
     // Variables atributos de la pantalla del juego.
     JPanel pantallaJuego;
     JLabel fondoJuego;
-    JLabel cartas[][];
-    int cartasParejas [][];
-    int cartasParejasAux [][];
-    String jugador;
-    
-    //Variable aleatorio
-    Random aleatorio;
     
     @Override
     public void start(Stage primaryStage) {
+        
+            // Conexión con la clase Tablero.
+            Tablero tablero = new Tablero();
         
             pantalla = new JFrame("Partner Animal");
 
@@ -108,7 +103,6 @@ public class PartnerAnimal extends Application {
 
             // Mostramos el fondo del Juego.
             pantallaJuego.add(fondoJuego);
-
             
             // Creamos el evento para el boton jugar. Es decir cuando demos click en jugar.
             botonJugar.addMouseListener(new MouseAdapter() {
@@ -120,6 +114,7 @@ public class PartnerAnimal extends Application {
                     pantallaInicio.setVisible(false);
                     pantalla.add(pantallaJuego);
                     pantallaJuego.setVisible(true);
+                    tablero.Matriz();
                 }
             });
             
