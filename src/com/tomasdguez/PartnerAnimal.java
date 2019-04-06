@@ -37,7 +37,7 @@ public class PartnerAnimal extends Application {
         
             // Conexión con la clase Tablero.
             Tablero tablero = new Tablero();
-        
+            // Nombre a mostrar en la ventana
             pantalla = new JFrame("Partner Animal");
 
             // Tamaño de nuestra ventana del juego *Estática.
@@ -63,7 +63,16 @@ public class PartnerAnimal extends Application {
             // Colocación del panel en pantalla.
             pantallaInicio.setLocation(0, 0);
             pantallaInicio.setVisible(true);
-
+            
+            // Creación del Boton de Juego.
+            botonJugar = new JLabel();
+            botonJugar.setSize(pantalla.getWidth(), pantalla.getHeight());
+            botonJugar.setLocation(0, 0);
+            // Añadimos la imagen del boton.
+            botonJugar.setIcon(new ImageIcon("src/com/img/botonPlay.png"));
+            botonJugar.setVisible(true);
+            pantallaInicio.add(botonJugar);
+            
             //Continuamos con el fondo de la presentación.
             fondoInicio = new JLabel();
             fondoInicio.setSize(pantalla.getWidth(), pantalla.getHeight());
@@ -74,14 +83,6 @@ public class PartnerAnimal extends Application {
             // Mostramos el fondo de presentación.
             pantallaInicio.add(fondoInicio);
 
-            // Creación del Boton de Juego.
-            botonJugar = new JLabel();
-            botonJugar.setSize(pantalla.getWidth(), pantalla.getHeight());
-            botonJugar.setLocation(0, 0);
-            // Añadimos la imagen del boton.
-            botonJugar.setIcon(new ImageIcon("src/com/img/botonJugar.png"));
-            botonJugar.setVisible(true);
-            pantallaInicio.add(botonJugar);
             
             //Pasamos a crear ahora la interfaz para el juego.
             //Continuamos dando las propiedades al Panel.
@@ -104,7 +105,7 @@ public class PartnerAnimal extends Application {
             // Mostramos el fondo del Juego.
             pantallaJuego.add(fondoJuego);
             
-            // Creamos el evento para el boton jugar. Es decir cuando demos click en jugar.
+            // Creamos el evento para el boton jugar. Es decir cuando demos click en jugar o en la pantalla.
             botonJugar.addMouseListener(new MouseAdapter() {
                 
                 // Metodo para el click del raton.
@@ -114,12 +115,13 @@ public class PartnerAnimal extends Application {
                     pantallaInicio.setVisible(false);
                     pantalla.add(pantallaJuego);
                     pantallaJuego.setVisible(true);
-                    tablero.Matriz();
+                    tablero.MatrizCartas();
                 }
             });
             
             // Añadimos el panel Presentación a la ventana.
             pantalla.add(pantallaInicio);
+            
             // Con esta propiedad mostramos la ventana. *Siempre la pondremos al final del constructor.
             pantalla.setVisible(true);
     }
